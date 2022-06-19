@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/speak4.mp3-49a987b3f639cc24328f9e8606f87f99.mp3str"
+
+[deps]
+
+source_file="res://audio/speak4.mp3"
+dest_files=[ "res://.import/speak4.mp3-49a987b3f639cc24328f9e8606f87f99.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

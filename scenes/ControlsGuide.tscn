@@ -1,0 +1,83 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Kdam_Thmor_Pro/KdamThmorPro-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://scripts/ControlsGuide.gd" type="Script" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+size = 56
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.184314, 0.607843, 0.196078, 1 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.180392, 0.501961, 0.188235, 1 )
+
+[node name="ControlsGuide" type="CanvasLayer"]
+script = ExtResource( 2 )
+
+[node name="Heading" type="Label" parent="."]
+margin_right = 40.0
+margin_bottom = 14.0
+custom_fonts/font = SubResource( 1 )
+text = "Controls"
+
+[node name="label1" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 148.0
+margin_right = 672.0
+margin_bottom = 236.0
+rect_pivot_offset = Vector2( -482, 23 )
+custom_fonts/font = SubResource( 1 )
+text = "Thrust - left mouse button"
+
+[node name="label2" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 253.0
+margin_right = 818.0
+margin_bottom = 341.0
+rect_pivot_offset = Vector2( -482, 23 )
+custom_fonts/font = SubResource( 1 )
+text = "Slowdown - right mouse button"
+
+[node name="label3" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 348.0
+margin_right = 672.0
+margin_bottom = 436.0
+rect_pivot_offset = Vector2( -482, 23 )
+custom_fonts/font = SubResource( 1 )
+text = "Rotate - mouse wheel"
+
+[node name="label4" type="Label" parent="."]
+margin_left = 18.0
+margin_top = 440.0
+margin_right = 1008.0
+margin_bottom = 528.0
+rect_pivot_offset = Vector2( -482, 23 )
+custom_fonts/font = SubResource( 1 )
+text = "Fire - space key / middle mouse button"
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 6.0
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -122.0
+margin_top = -82.0
+margin_right = -22.0
+margin_bottom = -12.0
+custom_fonts/font = SubResource( 2 )
+custom_styles/hover = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
+text = "OKAY"
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

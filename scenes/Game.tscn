@@ -1,0 +1,93 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://prefabs/Orb.tscn" type="PackedScene" id=1]
+[ext_resource path="res://sprites/Circle_blank.png" type="Texture" id=2]
+[ext_resource path="res://scripts/Game.gd" type="Script" id=3]
+[ext_resource path="res://prefabs/Starticles.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/Flowerust.tscn" type="PackedScene" id=5]
+[ext_resource path="res://audio/music.mp3" type="AudioStream" id=6]
+[ext_resource path="res://prefabs/Orba.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Kdam_Thmor_Pro/KdamThmorPro-Regular.ttf" type="DynamicFontData" id=8]
+
+[sub_resource type="DynamicFont" id=3]
+size = 42
+outline_size = 2
+font_data = ExtResource( 8 )
+
+[sub_resource type="PhysicsMaterial" id=1]
+bounce = 0.5
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 126, 26.4419 )
+
+[node name="Game" type="Node2D"]
+position = Vector2( 251, -50 )
+scale = Vector2( 1, 1.00271 )
+script = ExtResource( 3 )
+
+[node name="Starticles" parent="." instance=ExtResource( 4 )]
+
+[node name="Flowerust" parent="." instance=ExtResource( 5 )]
+position = Vector2( 650, 593.392 )
+
+[node name="Orba" parent="." instance=ExtResource( 7 )]
+position = Vector2( 416, -473.716 )
+
+[node name="Orb" parent="." instance=ExtResource( 1 )]
+position = Vector2( 990.979, 804.801 )
+rotation = -1.25243
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="CheckBox" type="CheckBox" parent="CanvasLayer"]
+margin_left = 7.0
+margin_top = 8.0
+margin_right = 176.0
+margin_bottom = 32.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Reverse mouse wheel"
+
+[node name="orbs_collected" type="Label" parent="CanvasLayer"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -73.0
+margin_top = 21.0
+margin_right = -33.0
+margin_bottom = 35.0
+custom_colors/font_color = Color( 0.0941176, 0.607843, 0.14902, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "0"
+
+[node name="music" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = -10.0
+autoplay = true
+
+[node name="sprite" type="Sprite" parent="."]
+position = Vector2( 641, 595.387 )
+scale = Vector2( 35.04, 36.1847 )
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+physics_material_override = SubResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+position = Vector2( 641, 595.387 )
+scale = Vector2( 35.04, 36.1847 )
+polygon = PoolVector2Array( 16.6667, 18.9898, 487, 645.251, 24.3151, 9.37085, 761, -146.603, 614, -527.57, 206, -768.916, -119, -824.765, -497, -690.13, -830, -241.346, -834, 189.486, -719, 572.449, -479, 758.943, -259, 789.859, 228, 782.878, 482, 648.243, 15.5822, 19.8442, -5.82192, 22.8484, -21.0046, 16.1509, -24.1153, -2.45296, -17, -17.9514, 4.13813, -23.9784, 15.4966, -18.411, 23.6872, -6.58716, 723, 375.981 )
+
+[node name="eat_area" type="Area2D" parent="."]
+position = Vector2( 529, -143.611 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="eat_area"]
+position = Vector2( 134, 16.4419 )
+shape = SubResource( 2 )
+
+[node name="ResetTimer" type="Timer" parent="."]
+
+[connection signal="hit_enemy" from="." to="." method="_on_Game_hit_enemy"]
+[connection signal="hit_flower" from="." to="." method="_on_Game_hit_flower"]
+[connection signal="toggled" from="CanvasLayer/CheckBox" to="." method="_on_CheckBox_toggled"]
+[connection signal="body_entered" from="eat_area" to="." method="_on_eat_area_body_entered"]
+[connection signal="timeout" from="ResetTimer" to="." method="_on_ResetTimer_timeout"]

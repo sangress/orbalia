@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/orbullet.mp3-41e944f68c9cc4a3eb6ebe84b1dd7bb1.mp3str"
+
+[deps]
+
+source_file="res://audio/orbullet.mp3"
+dest_files=[ "res://.import/orbullet.mp3-41e944f68c9cc4a3eb6ebe84b1dd7bb1.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

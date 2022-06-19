@@ -1,0 +1,12 @@
+[gd_scene format=2]
+
+[node name="Starticles" type="CPUParticles2D"]
+position = Vector2( 541, -1345.36 )
+amount = 1000
+lifetime = 100.0
+emission_shape = 2
+emission_rect_extents = Vector2( 2000, 2000 )
+gravity = Vector2( 0, 0 )
+radial_accel = 5.0
+damping = 5.0
+damping_random = 1.0

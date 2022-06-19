@@ -1,0 +1,110 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://scripts/Flowerust.gd" type="Script" id=1]
+[ext_resource path="res://sprites/flowerust.png" type="Texture" id=2]
+[ext_resource path="res://audio/orbullet.mp3" type="AudioStream" id=3]
+[ext_resource path="res://prefabs/Orbullet.tscn" type="PackedScene" id=4]
+[ext_resource path="res://prefabs/Explosion.tscn" type="PackedScene" id=5]
+[ext_resource path="res://audio/399303__deleted-user-5405837__explosion-012.mp3" type="AudioStream" id=6]
+
+[sub_resource type="PhysicsMaterial" id=4]
+absorbent = true
+
+[sub_resource type="CapsuleShape2D" id=3]
+radius = 53.3403
+height = 59.3102
+
+[node name="Flowerust" type="RigidBody2D" groups=["boss", "enemies"]]
+physics_material_override = SubResource( 4 )
+gravity_scale = 0.0
+script = ExtResource( 1 )
+Bullet = ExtResource( 4 )
+Explosion = ExtResource( 5 )
+
+[node name="sprite" type="Sprite" parent="."]
+rotation = -1.5708
+texture = ExtResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -7, -2.9919 )
+shape = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="fire_sfx" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+
+[node name="bullet_points" type="Node2D" parent="."]
+
+[node name="bullet_point" type="Position2D" parent="bullet_points"]
+position = Vector2( 6, 45.8759 )
+
+[node name="bullet_point2" type="Position2D" parent="bullet_points"]
+position = Vector2( 10, 20 )
+
+[node name="bullet_point3" type="Position2D" parent="bullet_points"]
+position = Vector2( 19, 6 )
+
+[node name="bullet_point4" type="Position2D" parent="bullet_points"]
+position = Vector2( 7, -34 )
+
+[node name="bullet_point5" type="Position2D" parent="bullet_points"]
+position = Vector2( 12, -20 )
+
+[node name="speed_inc_timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="explosion_positions" type="Node2D" parent="."]
+
+[node name="Position2D" type="Position2D" parent="explosion_positions"]
+
+[node name="Position2D2" type="Position2D" parent="explosion_positions"]
+position = Vector2( -23, -45 )
+
+[node name="Position2D3" type="Position2D" parent="explosion_positions"]
+position = Vector2( 33, -56 )
+
+[node name="Position2D4" type="Position2D" parent="explosion_positions"]
+position = Vector2( -47, 7 )
+
+[node name="Position2D5" type="Position2D" parent="explosion_positions"]
+position = Vector2( -3, 48 )
+
+[node name="Position2D6" type="Position2D" parent="explosion_positions"]
+position = Vector2( 49, 30 )
+
+[node name="Position2D7" type="Position2D" parent="explosion_positions"]
+position = Vector2( -59, -43 )
+
+[node name="Position2D8" type="Position2D" parent="explosion_positions"]
+position = Vector2( 49, -26 )
+
+[node name="Position2D9" type="Position2D" parent="explosion_positions"]
+position = Vector2( -7, -80 )
+
+[node name="Position2D10" type="Position2D" parent="explosion_positions"]
+position = Vector2( -30, 66 )
+
+[node name="Position2D11" type="Position2D" parent="explosion_positions"]
+position = Vector2( -45, 41 )
+
+[node name="Position2D12" type="Position2D" parent="explosion_positions"]
+position = Vector2( -30, -69 )
+
+[node name="Position2D13" type="Position2D" parent="explosion_positions"]
+position = Vector2( -60, -13 )
+
+[node name="Position2D14" type="Position2D" parent="explosion_positions"]
+position = Vector2( 40, 0 )
+
+[node name="Position2D15" type="Position2D" parent="explosion_positions"]
+position = Vector2( 16, 73 )
+
+[node name="explode" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+
+[connection signal="on_hit" from="." to="." method="_on_Flowerust_on_hit"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="speed_inc_timer" to="." method="_on_speed_inc_timer_timeout"]
