@@ -1,7 +1,7 @@
 # orbalia
 Help Orba heal, if you agree.
 
-*Entry to GWJ (godot wild jam) 46.*
+*Entry to GWJ ([godot wild jam](https://itch.io/jam/godot-wild-jam-46)) 46.*
 
 [https://sangress.itch.io/orbalia](https://sangress.itch.io/orbalia)
 
