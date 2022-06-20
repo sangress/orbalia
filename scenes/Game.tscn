@@ -59,9 +59,9 @@ custom_colors/font_color = Color( 0.0941176, 0.607843, 0.14902, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "0"
 
-[node name="music" type="AudioStreamPlayer2D" parent="."]
+[node name="music" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
-volume_db = -10.0
+volume_db = -15.0
 autoplay = true
 
 [node name="sprite" type="Sprite" parent="."]

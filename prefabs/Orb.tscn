@@ -30,7 +30,7 @@ position = Vector2( 0, 0.997314 )
 texture = ExtResource( 2 )
 
 [node name="dir" type="Sprite" parent="."]
-position = Vector2( 3.98901, 0.00268555 )
+position = Vector2( 9.57422, 0.00390625 )
 rotation = 1.5708
 scale = Vector2( 0.01, 0.01 )
 texture = ExtResource( 3 )
@@ -56,7 +56,7 @@ damping_random = 1.0
 color_ramp = SubResource( 4 )
 
 [node name="muzzle" type="Position2D" parent="."]
-position = Vector2( 5.98376, 0 )
+position = Vector2( 11.5669, 0 )
 
 [node name="fire_sfx" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource( 5 )
