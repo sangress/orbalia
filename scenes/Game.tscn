@@ -36,6 +36,7 @@ position = Vector2( 416, -473.716 )
 [node name="Orb" parent="." instance=ExtResource( 1 )]
 position = Vector2( 990.979, 804.801 )
 rotation = -1.25243
+spin_thrust = 600
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 

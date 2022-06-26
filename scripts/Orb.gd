@@ -51,7 +51,8 @@ func _input(event):
 		fire()
 
 func _unhandled_input(event):	
-	rotation_dir = lerp(rotation_dir, 0, 0.4)
+#	rotation_dir = lerp(rotation_dir, 0, 0.8)
+	rotation_dir = 0
 	if event is InputEventMouseButton:
 		if wheel_dir == 'down':
 			if event.button_index == BUTTON_WHEEL_UP:
